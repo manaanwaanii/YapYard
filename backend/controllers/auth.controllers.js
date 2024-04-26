@@ -1,5 +1,5 @@
 //Individual Functions for Authentication
-
+import User from "../models/user.model.js";
 export const signup = async (req,res) => {
     try {
         const {fullName, username ,password, confirmPassword, gender} = req.body;
