@@ -51,12 +51,12 @@ export const getMessages = async (req, res) => {
          participants: { $all: [senderId, userToChatId] },
       }).populate("messages");
       
-if (!C)
+if (!conversation) return res.status(200).json([])
 
+const messages = conversation.messages;
 
       res.status(200).json(conversation.messages)
-
-   }catch (error) {
+   }  catch (error) {
       console.log("Error in getMessage Controller; ", error.message);
       res.status(500).json({error: "Internal server error" });
    }
